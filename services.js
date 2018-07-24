@@ -3,16 +3,14 @@
 const NounProject = require('the-noun-project');
 const mysql = require('mysql');
 const config = require("./config.json");
-
-
 const limit = 5;
 
-np = new NounProject(config.noun);
+
+const ignore = config.ignore;
+const np = new NounProject(config.noun);
 
 const conn1 = mysql.createConnection(config.conn1);
-
 const conn2 = mysql.createConnection(config.conn2);
-
 const connFinal =  mysql.createConnection(config.conn3);
 
 //funcion para obtener un icono de nounproject
@@ -96,7 +94,7 @@ const getIds = (offset) => {
 
     let connectPromise = new Promise((resolve, reject) => {
 
-        conn1.query('SELECT nounId, disenadorId AS internalId FROM icons_uploads LIMIT ? OFFSET ?', [limit, offset] ,  (error, results, fields) => {
+        conn1.query('SELECT id,nounId, disenadorId AS internalId FROM icons_uploads LIMIT ? OFFSET ?', [limit, offset] ,  (error, results, fields) => {
             
             if (error) {
                 reject(error);
@@ -108,7 +106,7 @@ const getIds = (offset) => {
                 return;
             }
 
-            //let idIcons = results.map((result) => result.nounId);
+            let idIcons = results.filter((result) => result.id > ignore);
 
             resolve(results)
             
@@ -309,5 +307,6 @@ module.exports = {
     getIds: getIds,
     getOrCreateTag: getOrCreateTag,
     getOrCreateIcon: getOrCreateIcon,
-    createRelationship: createRelationship
+    createRelationship: createRelationship,
+    limit: limit
 }

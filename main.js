@@ -6,9 +6,7 @@ const getIds = services.getIds;
 const getOrCreateTag = services.getOrCreateTag;
 const getOrCreateIcon = services.getOrCreateIcon;
 const createRelationship = services.createRelationship;
-
-
-const limit = 5;
+const limit = services.limit;
 
 (async ()=>{
     
