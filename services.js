@@ -102,13 +102,18 @@ const getIds = (offset) => {
             }
             
             if(!results.length){
-                reject("Without Results");
+                reject("Finished");
                 return;
             }
 
             let idIcons = results.filter((result) => result.id > ignore);
 
-            resolve(results)
+            if(!idIcons.length){
+                reject("continue"); 
+                return;
+            }
+            
+            resolve(idIcons)
             
         });
 

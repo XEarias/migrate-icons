@@ -51,6 +51,10 @@ const limit = services.limit;
             }
            
         } catch (e){
+
+            if(e == "continue"){
+                continue;
+            }             
             console.log(e)
             break;
            
