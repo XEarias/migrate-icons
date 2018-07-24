@@ -231,7 +231,7 @@ const createIcon = (svg, nounId) => {
 
     let createPromise = new Promise((resolve, reject) => {
 
-        connFinal.query('INSERT INTO iconos (svg, nounId) VALUES (?,?)', [svg, nounId] ,  (error, results, fields) => {
+        connFinal.query('INSERT INTO iconos (svg, idNoun) VALUES (?,?)', [svg, nounId] ,  (error, results, fields) => {
                     
             if (error) {
                 reject(error);
