@@ -33,7 +33,7 @@ const limit = 5;
 
                     //creamos el icono
                     let iconId = await getOrCreateIcon(svg, nounId);
-
+                    
                     for (tag of tags){
                         
                         try {

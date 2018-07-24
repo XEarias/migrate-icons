@@ -136,7 +136,8 @@ const getTag = (tag) => {
                 return;
             }
 
-            resolve(results.id)
+            let idTag = results[0].id;
+            resolve(idTag)
             
         });
 
@@ -216,8 +217,8 @@ const getIcon = (nounId) => {
                 reject("icon no result");
                 return;
             }
-
-            resolve(results.id)
+            let idIcon = results[0].id;
+            resolve(idIcon);
             
         });
 
