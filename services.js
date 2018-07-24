@@ -95,7 +95,7 @@ const getIds = (offset) => {
 
     let connectPromise = new Promise((resolve, reject) => {
 
-        conn2.query('SELECT nounId, disenadorId AS internalId FROM icons_uploads LIMIT ? OFFSET ?', [limit, offset] ,  (error, results, fields) => {
+        conn1.query('SELECT nounId, disenadorId AS internalId FROM icons_uploads LIMIT ? OFFSET ?', [limit, offset] ,  (error, results, fields) => {
             
             if (error) {
                 reject(error);
