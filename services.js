@@ -200,7 +200,7 @@ const getOrCreateTag = (tag) => {
 }
 
 //obtener id de icono si existe
-const getTag = (nounId) => {
+const getIcon = (nounId) => {
 
     let selectPromise = new Promise((resolve, reject) => {
 
