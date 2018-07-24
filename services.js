@@ -4,9 +4,10 @@ const NounProject = require('the-noun-project');
 const mysql = require('mysql');
 const config = require("./config.json");
 
-np = new NounProject(config.noun);
 
 const limit = 5;
+
+np = new NounProject(config.noun);
 
 const conn1 = mysql.createConnection(config.conn1);
 
@@ -248,7 +249,7 @@ const createIcon = (svg, nounId) => {
 
 //crear u obtener id del icono
 const getOrCreateIcon = (svg, nounId) => {
-
+   
     let principalPromise = new Promise( async (resolve, reject) => {
             
         try {

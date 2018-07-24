@@ -7,6 +7,9 @@ const getOrCreateTag = services.getOrCreateTag;
 const getOrCreateIcon = services.getOrCreateIcon;
 const createRelationship = services.createRelationship;
 
+
+const limit = 5;
+
 (async ()=>{
     
     let continuar = true;
@@ -22,21 +25,16 @@ const createRelationship = services.createRelationship;
                 
                 try {
                     let nounId = idsIcon.nounId;
+
                     let internalId = idsIcon.internalId;
                     
                     let tags = await getTagsNoun(nounId);
-
                     let svg = await getIconSVG(internalId);
 
-                    let icon = {
-                        tags: tags,
-                        svg: svg
-                    }
-
                     //creamos el icono
-                    iconId = await getOrCreateIcon(nounId);
+                    let iconId = await getOrCreateIcon(svg, nounId);
 
-                    for (tag of icon.tags){
+                    for (tag of tags){
                         
                         try {
                             
