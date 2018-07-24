@@ -204,7 +204,7 @@ const getIcon = (nounId) => {
 
     let selectPromise = new Promise((resolve, reject) => {
 
-        connFinal.query('SELECT id FROM iconos WHERE nounId = ?', [nounId] ,  (error, results, fields) => {
+        connFinal.query('SELECT id FROM iconos WHERE idNoun = ?', [nounId] ,  (error, results, fields) => {
             
             if (error) {
                 reject(error);
