@@ -151,7 +151,7 @@ const createTag = (tag) => {
 
     let createPromise = new Promise((resolve, reject) => {
 
-        connFinal.query('INSERT INTO tags (valor) VALUES ?', {valor: tag} ,  (error, results, fields) => {
+        connFinal.query('INSERT INTO tags (valor) VALUES ?',[tag] ,  (error, results, fields) => {
                     
             if (error) {
                 reject(error);
